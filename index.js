@@ -1,59 +1,43 @@
-// Node.js
-// Space Character Attributes
+// Loot Randomizer
+
+// CONFIGURATION SECTION
 
 const MAX_LOOT = 1;
-let lootList = []
-
-let loot = {
+const loot = {
     "PROFESSION" : [
-        "Miner",
-        "Merchant",
-        "Explorer",
-        "Soldier",
-        "Guard",
-        "Scientist",
-        "Engineer",
-        "Diplomat",
-        "Captain",
-        "Medic",
-        "Cleric",
-        "Smuggler",
-        "Spy",
-        "Space Pirate",
-        "Mercenary",
-        "Leader",
-        "Politician",
-        "Black Market Dealer",
         "Assassin",
-        "Hacker",
-        "Negotiator",
-        "Inventor",
-        "Professor",
-        "Lawyer",
-        "Judge",
-        "Rebel",
-        "Worker"        
+        "Bard",
+        "Bodyguard",
+        "Businessman",
+        "Collector",
+        "Engineer",
+        "Farmer",
+        "Historian",
+        "Industrialist",
+        "Mercenary",
+        "Merchant",
+        "Miner",
+        "Diplomat",
+        "Politician",
+        "Scientist",
+        "Smuggler",
+        "Strategist",
+        "Thief",
+        "Bounty Hunter"     
     ],
     "OBSESSION" : [
-        "Harmony",
-        "Acceptance",
-        "Curiosity",
-        "Power",
         "Money",
-        "Vengeance",
-        "Destruction",
         "Knowledge",
-        "Revenge",
-        "Immortality",
-        "Equity",
-        "Adventure",
-        "Liberty",
         "Order",
-        "Past",
-        "Future",
-        "Fame",
         "Beauty",
-        "Chaos"
+        "Future",
+        "Science",
+        "Immortality",
+        "Chaos",
+        "Power",
+        "Vengeance",
+        "Fame",
+        "Past"
     ],
     "GIFT" : [
         "Awareness",
@@ -125,21 +109,29 @@ let loot = {
     ]
 }
 
+// END OF CONFIGURATION SECTION
+
+const lootProps = Object.keys(loot)
+let lootList = []
 // Create a function to choose randomly from an array
 function randomFromArray(array) {
     var random = Math.floor(Math.random() * array.length);
     return array[random];
 }
 
-// Create 8000 characters with random properties from each of the arrays in the spacechar object
+// Create x loot based on the MAX_LOOT configuration
+// Assign the properties of the loot object in a dynamic way
+// This code was refactorized by Eliseo (https://github.com/eliseoci/)
 for (var i = 0; i < MAX_LOOT; i++) {
-    var newLoot = {};
-    newLoot.profession = randomFromArray(loot.PROFESSION);
-    newLoot.obsession = randomFromArray(loot.OBSESSION);
-    newLoot.gift = randomFromArray(loot.GIFT);
-    newLoot.skill = randomFromArray(loot.SKILL);
-    newLoot.alignment = randomFromArray(loot.ALIGNMENT);
-    lootList.push(newLoot);
+    let newLoot = {}
+    for (const prop of lootProps) {
+        if(prop != undefined){
+            console.log(prop)
+            newLoot[prop] = randomFromArray(loot[prop])
+        }
+    }
+    lootList.push(newLoot)
 }
 
 console.log(lootList[0]);
+

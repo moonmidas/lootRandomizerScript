@@ -1,11 +1,19 @@
 {
-  "name": "nftrandomizer",
+  "name": "lootrandomizer",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple script to randomize loot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Midas",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonmidas/lootRandomizerScript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/moonmidas/lootRandomizerScript/issues"
+  },
+  "homepage": "https://github.com/moonmidas/lootRandomizerScript#readme"
 }
